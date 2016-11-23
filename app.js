@@ -26,11 +26,11 @@ function AlreadyBoughtController(ShoppingListCheckOffService) {
 function ShoppingListCheckOffServiceProvider() {
   var service=this;
   //initializing to buy list with 5 items by default.
-  service.toBuy=[{item:"Milk",quantity:"1 bag"},
-                 {item:"Chips",quantity:"12 bag"},
-                 {item:"Chocolate",quantity:"3 bag"},
-                 {item:"Beer",quantity:"11 bottle"},
-                 {item:"Coconut",quantity:"1 piece"},];
+  service.toBuy=[{name:"Milk",quantity:"1 bag"},
+                 {name:"Chips",quantity:"12 bag"},
+                 {name:"Chocolate",quantity:"3 bag"},
+                 {name:"Beer",quantity:"11 bottle"},
+                 {name:"Coconut",quantity:"1 piece"},];
   //initializing bought emtpy list
   service.bought=[];
 
