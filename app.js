@@ -5,12 +5,16 @@ angular.module('ShoppingListCheckOff',[])
 .controller('AlreadyBoughtController', AlreadyBoughtController)
 .service('ShoppingListCheckOffService',ShoppingListCheckOffServiceProvider);
 
+
 ToBuyController.$inject=['ShoppingListCheckOffService'];
 function ToBuyController(ShoppingListCheckOffService) {
     var list=this;
     list.items=ShoppingListCheckOffService.getToBuyItems();
-
+    list.boughtItem=function functionName(index) {
+        ShoppingListCheckOffService.boughtItem(index);
+    }
 }
+
 
 AlreadyBoughtController.$inject=['ShoppingListCheckOffService'];
 function AlreadyBoughtController(ShoppingListCheckOffService) {
@@ -21,29 +25,31 @@ function AlreadyBoughtController(ShoppingListCheckOffService) {
 
 function ShoppingListCheckOffServiceProvider() {
   var service=this;
+  //initializing to buy list with 5 items by default.
   service.toBuy=[{item:"Milk",quantity:"1 bag"},
                  {item:"Chips",quantity:"12 bag"},
                  {item:"Chocolate",quantity:"3 bag"},
                  {item:"Beer",quantity:"11 bottle"},
                  {item:"Coconut",quantity:"1 piece"},];
+  //initializing bought emtpy list
   service.bought=[];
 
+  //returning to buy list items
   service.getToBuyItems=function(){
     return service.toBuy;
   }
 
   service.boughtItem=function(index){
-    service.bought.push(service.toBuy.splic(index,1));
-    //service.toBuy.remove(index);
-    //service.toBuy.splice(itemIndex, 1);
+    //removing from to Buy list and adding that item to bought list
+    service.bought.push(service.toBuy.splice(index,1)[0]);
   }
 
+  //returning bought list
   service.getBoughtListItems=function(){
     return service.bought;
   }
 
   return service;
 }
-
 
 }());

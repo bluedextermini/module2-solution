@@ -34,7 +34,9 @@
     <div class="col-md-6" ng-controller='ToBuyController as list1'>
      <h2>To Buy:</h2>
      <ul>
-       <li ng-repeat='item in list1.items'>Buy {{item.quantity}} {{item.item}}<button class="btn btn-default"><span class="glyphicon glyphicon-ok" ng-click='list1.bought($index)'></span> Bought</button></li>
+       <li ng-repeat='item in list1.items'>Buy {{item.quantity}} {{item.item}}<button  ng-click="list1.boughtItem($index);" class="btn btn-default">
+         <span class="glyphicon glyphicon-ok"></span> Bought</button>
+       </li>
        <!-- <li>Buy 10 cookies <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button></li> -->
      </ul>
      <div ng-if="!list1.items.length" class="emptyMessage">Everything is bought!</div>
