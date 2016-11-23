@@ -3,7 +3,7 @@
 angular.module('ShoppingListCheckOff',[])
 .controller('ToBuyController',ToBuyController)
 .controller('AlreadyBoughtController', AlreadyBoughtController)
-.service('ShoppingListCheckOffService',ShoppingListCheckOffServiceProvider);
+.service('ShoppingListCheckOffService',ShoppingListCheckOffService);
 
 
 ToBuyController.$inject=['ShoppingListCheckOffService'];
@@ -23,7 +23,7 @@ function AlreadyBoughtController(ShoppingListCheckOffService) {
 
 }
 
-function ShoppingListCheckOffServiceProvider() {
+function ShoppingListCheckOffService() {
   var service=this;
   //initializing to buy list with 5 items by default.
   service.toBuy=[{name:"Milk",quantity:"1 bag"},
